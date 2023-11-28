@@ -5,7 +5,11 @@
 	required = true
 [user]
 	name = gabe
+{{- if eq .chezmoi.hostname "work-laptop" }}
+	email = gabriel.k@yobeinc.com
+{{- else }}
 	email = gabeklav@fastmail.com
+{{- end }}
 [core]
 	longpaths = true
 	editor = nvim
