@@ -10,7 +10,6 @@
 {{- else }}
 	email = gabeklav@fastmail.com
 {{- end }}
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISmB/2bA7OVnUv78ef/CrLSH8tloqrC1poQqdN/c5e4
 [core]
 	longpaths = true
 	editor = nvim
@@ -18,6 +17,9 @@
 	autoSetupRemote = true
 [merge]
 	tool = smerge
+{{- if ne .chezmoi.hostname "work-laptop" }}
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISmB/2bA7OVnUv78ef/CrLSH8tloqrC1poQqdN/c5e4
 [gpg]
 	format = ssh
 [gpg "ssh"]
@@ -29,3 +31,4 @@
 {{- end }}
 [commit]
 	gpgsign = true
+{{- end }}
