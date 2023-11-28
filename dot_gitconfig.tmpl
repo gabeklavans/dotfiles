@@ -10,6 +10,7 @@
 {{- else }}
 	email = gabeklav@fastmail.com
 {{- end }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISmB/2bA7OVnUv78ef/CrLSH8tloqrC1poQqdN/c5e4
 [core]
 	longpaths = true
 	editor = nvim
@@ -17,3 +18,14 @@
 	autoSetupRemote = true
 [merge]
 	tool = smerge
+[gpg]
+	format = ssh
+[gpg "ssh"]
+{{- if eq .chezmoi.os "linux" }}
+	program = "/opt/1Password/op-ssh-sign"
+{{- else if eq .chezmoi.os "darwin" }}
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{- else if eq .chezmoi.os "windows" }}
+{{- end }}
+[commit]
+	gpgsign = true
