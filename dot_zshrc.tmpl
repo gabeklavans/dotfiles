@@ -99,6 +99,15 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export CODESTATS_API_KEY=SFMyNTY.WkdGaVpRPT0jI01qQTFOVEk9.lZgfHZSFJ-mOnGC9Ji92DnRbdAn0VUrBvRpbA2QI-R8
+
+{{ if eq .chezmoi.hostname "melinoe" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "qboyq43o3sctuyauhbrjxqryc4").credential.value }}
+{{ else if eq .chezmoi.hostname "macaria" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "xvfqyhbptjjwhtldojxx3ybw3m").credential.value }}
+{{ else if eq .chezmoi.hostname "mac-mini.local" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkcgu").credential.value }}
+{{ else if eq .chezmoi.hostname "work-laptop" }}
+export CODESTATS_API_KEY={{ keepassxcAttribute "Work-Laptop Codestats API Key" "credential" }}
+{{ end }}
 
 source ~/code-stats-zsh/codestats.plugin.zsh
