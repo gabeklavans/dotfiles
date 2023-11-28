@@ -1,0 +1,7 @@
+Host 0.0.0.0
+	HostName 0.0.0.0
+	User clash
+	Port 50922
+
+Host *
+	IdentityAgent ~/.1password/agent.sock

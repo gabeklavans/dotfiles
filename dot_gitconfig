@@ -1,0 +1,15 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = gabe
+	email = gabeklav@fastmail.com
+[core]
+	longpaths = true
+	editor = nvim
+[push]
+	autoSetupRemote = true
+[merge]
+	tool = smerge
