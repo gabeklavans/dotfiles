@@ -456,9 +456,9 @@ font:
 #  program: /bin/bash
 #  args:
 #    - --login
-{{- if eq .chezmoi.hostname "work-laptop" }}
+{{- if eq .chezmoi.os "windows" }}
 shell:
-  program: C:\Users\gabri\scoop\apps\pwsh\current\pwsh.exe
+  program: {{ .chezmoi.homeDir }}\scoop\shims\pwsh.exe
 {{- end }}
 
 # Startup directory
