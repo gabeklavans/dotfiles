@@ -6,3 +6,11 @@
     type = "git-repo"
     url = "https://github.com/gabeklavans/kickstart.nvim"
     refreshPeriod = "24h"
+
+{{- if eq .chezmoi.os "linux" }}
+["code-stats-zsh"]
+    type = "archive"
+    url = "https://gitlab.com/code-stats/code-stats-zsh/-/archive/master/code-stats-zsh-master.tar.gz"
+    exact = true
+    stripComponents = 1
+{{- end }}
