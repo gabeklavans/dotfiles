@@ -4,7 +4,8 @@
 [".config/nvim"]
 {{- end }}
     type = "git-repo"
-    url = "https://github.com/gabeklavans/kickstart.nvim"
+    # url = "https://github.com/gabeklavans/kickstart.nvim"
+    url = "git@github.com:gabeklavans/kickstart.nvim.git"
     refreshPeriod = "24h"
 
 {{- if eq .chezmoi.os "linux" }}
