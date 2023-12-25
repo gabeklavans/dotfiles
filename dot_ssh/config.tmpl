@@ -14,3 +14,7 @@ Host *
 Host mac-mini
 	HostName mac-mini.local
 	User gabe
+
+Host clash-mac
+	HostName {{ onepasswordRead "op://Personal/Clash MacOS Build/URL" }}
+	User {{ onepasswordRead "op://Personal/Clash MacOS Build/username" }}
