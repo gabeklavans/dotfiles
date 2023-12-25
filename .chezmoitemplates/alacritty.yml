@@ -106,7 +106,7 @@ window:
   # Resize increments
   #
   # Prefer resizing window by discrete steps equal to cell dimensions.
-  resize_increments: true
+  resize_increments: false
 
   # Make `Option` key behave as `Alt` (macOS only):
   #   - OnlyLeft
