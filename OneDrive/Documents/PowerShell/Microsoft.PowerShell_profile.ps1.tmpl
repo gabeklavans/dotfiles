@@ -9,6 +9,11 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+{{- if eq .chezmoi.hostname "work-laptop" }}
 $env:CODESTATS_API_KEY={{ keyring "codestats" "dabe" | quote }}
+
+function GoYobeSDK {Set-Location -Path C:\Users\gabri\repos\yobe-sdk}
+Set-Alias -Name cy -Value GoYobeSDK
+{{- end }}
 
 $env:EDITOR="nvim"
