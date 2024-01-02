@@ -1,7 +1,7 @@
-Host 0.0.0.0
-	HostName 0.0.0.0
-	User clash
-	Port 50922
+Host localhost
+	HostName localhost
+	StrictHostKeyChecking no
+	UserKnownHostsFile=/dev/null
 
 {{- if eq .chezmoi.os "linux" }}
 Host *
