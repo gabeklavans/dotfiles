@@ -1,0 +1,79 @@
+[font]
+{{- if eq .chezmoi.os "darwin" }}
+size = 18.0
+{{- else }}
+size = 14.0
+{{- end }}
+
+[font.normal]
+family = "FiraMono Nerd Font"
+style = "Regular"
+
+{{- if eq .chezmoi.os "windows" }}
+[shell]
+program = {{ .chezmoi.homeDir }}\scoop\shims\pwsh.exe
+{{- end }}
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Return"
+mode = "~Search"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Command"
+
+[window]
+dynamic_title = true
+{{- if eq .chezmoi.os "linux" }}
+opacity = 0.9
+{{- end }}
+resize_increments = false
+startup_mode = "Maximized"
