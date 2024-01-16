@@ -112,4 +112,6 @@ source ~/code-stats-zsh/codestats.plugin.zsh
 
 {{- if eq .chezmoi.os "darwin" }}
 PATH=$PATH:~/.local/bin
+{{- else if eq .chezmoi.os "linux" }}
+PATH=$PATH:/snap/bin
 {{- end }}
