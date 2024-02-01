@@ -18,6 +18,10 @@
 [merge]
 	tool = smerge
 {{- if ne .chezmoi.hostname "work-laptop" }}
+{{- if eq .chezmoi.os "windows" }}
+[core]
+	sshCommand = {{ .chezmoi.homeDir }}/scoop/shims/ssh.exe
+{{- end }}
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISmB/2bA7OVnUv78ef/CrLSH8tloqrC1poQqdN/c5e4
 [gpg]
