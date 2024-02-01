@@ -165,7 +165,8 @@
                 "guid": "{fe66f4b8-350f-56bb-adb0-c2ce745f6db5}",
                 "hidden": false,
                 "name": "PowerShell (scoop)",
-                "commandline": "pwsh"
+                "commandline": "pwsh",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
