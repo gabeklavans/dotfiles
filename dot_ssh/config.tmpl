@@ -11,10 +11,6 @@ Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 {{- end }}
 
-Host mac-mini
-	HostName mac-mini.local
-	User gabe
-
 Host clash-mac
 	HostName {{ onepasswordRead "op://Personal/Clash MacOS Build Box/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash MacOS Build Box/username" }}
