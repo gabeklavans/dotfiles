@@ -100,6 +100,10 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+{{- if eq .chezmoi.hostname "work-laptop" }}
+source ~/work.zsh
+{{- end }}
+
 {{ if eq .chezmoi.hostname "melinoe" }}
 export CODESTATS_API_KEY={{- (onepasswordDetailsFields "qboyq43o3sctuyauhbrjxqryc4").credential.value }}
 {{ else if eq .chezmoi.hostname "macaria" }}

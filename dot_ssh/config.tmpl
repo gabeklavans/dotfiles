@@ -3,7 +3,7 @@ Host localhost
 	StrictHostKeyChecking no
 	UserKnownHostsFile=/dev/null
 
-{{- if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" and ne .chezmoi.hostname "work-laptop" }}
 Host *
 	IdentityAgent ~/.1password/agent.sock
 {{- else if eq .chezmoi.os "darwin" }}
