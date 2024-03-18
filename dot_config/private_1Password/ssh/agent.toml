@@ -1,0 +1,11 @@
+[[ssh-keys]]
+item = "Git Auth"
+
+[[ssh-keys]]
+item = "GitLab Auth & Sign"
+
+[[ssh-keys]]
+item = "personal"
+
+[[ssh-keys]]
+vault = "Personal"
