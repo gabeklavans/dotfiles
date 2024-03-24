@@ -119,5 +119,6 @@ PATH=$PATH:~/.local/bin
 {{- else if eq .chezmoi.os "linux" }}
 PATH=$PATH:/snap/bin
 {{- end }}
+PATH=$PATH:~/.cargo/bin
 
 alias s="kitten ssh"
