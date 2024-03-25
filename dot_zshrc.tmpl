@@ -122,3 +122,8 @@ PATH=$PATH:/snap/bin
 PATH=$PATH:~/.cargo/bin
 
 alias s="kitten ssh"
+
+if command -v fzf &> /dev/null
+then
+  eval "$(fzf --zsh)"
+fi
