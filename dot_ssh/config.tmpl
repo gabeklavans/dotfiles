@@ -11,8 +11,10 @@ Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 {{- end }}
 
+{{- if eq .chezmoi.hostname "melinoe" }}
 Host clash-mac
 	HostName {{ onepasswordRead "op://Personal/Clash MacOS Build Box/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash MacOS Build Box/username" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/VNC" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/SSH" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/SSH" }}
+{{- end }}
