@@ -120,8 +120,11 @@ PATH=$PATH:~/.local/bin
 PATH=$PATH:/snap/bin
 {{- end }}
 PATH=$PATH:~/.cargo/bin
+PATH=$PATH:~/go/bin
 
 alias s="kitten ssh"
+alias icat="kitten icat"
+alias kclip="kitten clipboard"
 
 if command -v fzf &> /dev/null
 then
