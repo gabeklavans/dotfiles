@@ -118,6 +118,7 @@ source ~/code-stats-zsh/codestats.plugin.zsh
 PATH=$PATH:~/.local/bin
 {{- else if eq .chezmoi.os "linux" }}
 PATH=$PATH:/snap/bin
+PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 {{- end }}
 PATH=$PATH:~/.cargo/bin
 PATH=$PATH:~/go/bin
