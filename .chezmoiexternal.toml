@@ -4,12 +4,11 @@
 [".config/nvim"]
 {{- end }}
     type = "git-repo"
-    url = "https://github.com/gabeklavans/kickstart.nvim"
-    #url = "git@github.com:gabeklavans/kickstart.nvim.git"
+    url = "https://git.sr.ht/~dabe/nvim"
     refreshPeriod = "24h"
 
 {{- if eq .chezmoi.os "linux" }}
-["code-stats-zsh"]
+["scripts/code-stats-zsh"]
     type = "archive"
     url = "https://gitlab.com/code-stats/code-stats-zsh/-/archive/master/code-stats-zsh-master.tar.gz"
     exact = true

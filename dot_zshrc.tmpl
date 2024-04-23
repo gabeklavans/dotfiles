@@ -117,7 +117,7 @@ export CODESTATS_API_KEY={{- (onepasswordDetailsFields "xvfqyhbptjjwhtldojxx3ybw
 export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkcgu").credential.value }}
 {{ end }}
 
-source ~/code-stats-zsh/codestats.plugin.zsh
+source ~/scripts/code-stats-zsh/codestats.plugin.zsh
 
 {{- if eq .chezmoi.os "darwin" }}
 PATH=$PATH:~/.local/bin
