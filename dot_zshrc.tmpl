@@ -119,12 +119,11 @@ export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkc
 
 source ~/scripts/code-stats-zsh/codestats.plugin.zsh
 
-{{- if eq .chezmoi.os "darwin" }}
-PATH=$PATH:~/.local/bin
-{{- else if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" }}
 PATH=$PATH:/snap/bin
 {{- end }}
 PATH=$PATH:~/.cargo/bin
+PATH=$PATH:~/.local/bin
 PATH=$PATH:~/go/bin
 
 alias s="kitten ssh"
