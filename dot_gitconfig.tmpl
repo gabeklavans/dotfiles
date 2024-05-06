@@ -38,6 +38,8 @@
 	gpgsign = true
 {{- end }}
 
+# these necessitate a manually created non-expiring token for `gh auth login`
+# https://github.com/cli/cli/discussions/4500#discussioncomment-1498442
 [credential "https://github.com"]
 	helper = 
 	helper = !gh auth git-credential
