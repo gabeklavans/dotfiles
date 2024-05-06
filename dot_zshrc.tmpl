@@ -121,6 +121,8 @@ source ~/scripts/code-stats-zsh/codestats.plugin.zsh
 
 {{- if eq .chezmoi.os "linux" }}
 PATH=$PATH:/snap/bin
+{{- else if eq .chezmoi.os "darwin" }}
+PATH=/opt/homebrew/opt/ruby/bin:$PATH
 {{- end }}
 PATH=$PATH:~/.cargo/bin
 PATH=$PATH:~/.local/bin
