@@ -12,9 +12,12 @@ Host *
 {{- end }}
 
 {{- if eq .chezmoi.hostname "melinoe" }}
-Host clash-mac
-	HostName {{ onepasswordRead "op://Personal/Clash MacOS Build Box/URL" }}
-	User {{ onepasswordRead "op://Personal/Clash MacOS Build Box/username" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/VNC" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/SSH" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash MacOS Build Box/Ports/SSH" }}
+Host clash-build
+	HostName {{ onepasswordRead "op://Personal/Clash Build Host/URL" }}
+	User {{ onepasswordRead "op://Personal/Clash Build Host/username" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win WebVNC" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win WebVNC" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }}
 {{- end }}
