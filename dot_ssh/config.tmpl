@@ -21,3 +21,14 @@ Host clash-build
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }}
 {{- end }}
+Host mac-container
+	HostName localhost
+	Port 50822
+	User clash
+	ForwardAgent yes
+Host win-container
+	HostName localhost
+	Port 60022
+	User gabe
+	ForwardAgent yes
+	RemoteCommand pwsh
