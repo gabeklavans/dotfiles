@@ -11,7 +11,7 @@ Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 {{- end }}
 
-{{- if eq .chezmoi.hostname "melinoe" }}
+{{- if or (eq .chezmoi.hostname "melinoe") (eq .chezmoi.hostname "macaria") }}
 Host clash-build
 	HostName {{ onepasswordRead "op://Personal/Clash Build Host/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash Build Host/username" }}
