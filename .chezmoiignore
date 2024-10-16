@@ -1,9 +1,6 @@
-{{- if or (ne .chezmoi.hostname "work-laptop") (eq .chezmoi.os "linux") }}
-OneDrive
-{{- end }}
-
-{{- if eq .chezmoi.hostname "work-laptop" }}
+{{- if eq .chezmoi.hostname "gbk-work-laptop" }}
 .ssh
+.gitconfig
 {{- end }}
 
 {{- if ne .chezmoi.os "windows" }}

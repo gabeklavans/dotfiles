@@ -85,20 +85,6 @@ else
   export EDITOR='nvim'
 fi
 
-{{- if eq .chezmoi.hostname "work-laptop" }}
-source ~/work.zsh
-{{- end }}
-
-{{ if eq .chezmoi.hostname "melinoe" }}
-export CODESTATS_API_KEY={{- (onepasswordDetailsFields "qboyq43o3sctuyauhbrjxqryc4").credential.value }}
-{{ else if eq .chezmoi.hostname "macaria" }}
-export CODESTATS_API_KEY={{- (onepasswordDetailsFields "xvfqyhbptjjwhtldojxx3ybw3m").credential.value }}
-{{ else if eq .chezmoi.hostname "mac-mini" }}
-export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkcgu").credential.value }}
-{{ end }}
-
-source ~/scripts/code-stats-zsh/codestats.plugin.zsh
-
 {{- if eq .chezmoi.os "linux" }}
 PATH=$PATH:/snap/bin
 {{- else if eq .chezmoi.os "darwin" }}
@@ -120,4 +106,18 @@ export QT_IM_MODULE=fcitx
 export LC_CTYPE=en_US.UTF-8
 {{- end }}
 
+{{ if eq .chezmoi.hostname "melinoe" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "qboyq43o3sctuyauhbrjxqryc4").credential.value }}
+{{ else if eq .chezmoi.hostname "macaria" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "xvfqyhbptjjwhtldojxx3ybw3m").credential.value }}
+{{ else if eq .chezmoi.hostname "mac-mini" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkcgu").credential.value }}
+{{ end }}
+
+{{- if ne .chezmoi.hostname "gbk-work-laptop" }}
+source ~/scripts/code-stats-zsh/codestats.plugin.zsh
+
 source ~/.config/op/plugins.sh
+{{- else }}
+source ~/work.zsh
+{{- end }}
