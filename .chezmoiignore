@@ -1,6 +1,7 @@
 {{- if eq .chezmoi.hostname "gbk-work-laptop" }}
 .ssh
 .gitconfig
+.config/1Password/ssh/agent.toml
 {{- end }}
 
 {{- if ne .chezmoi.os "windows" }}
