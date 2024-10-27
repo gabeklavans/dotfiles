@@ -16,6 +16,7 @@ Host clash-build
 	HostName {{ onepasswordRead "op://Personal/Clash Build Host/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash Build Host/username" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC qemu" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC qemu" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win WebVNC" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win WebVNC" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
