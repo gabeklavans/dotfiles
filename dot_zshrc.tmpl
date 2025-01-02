@@ -98,6 +98,8 @@ PATH=$PATH:~/go/bin
 alias s="kitten ssh"
 alias icat="kitten icat"
 alias kclip="kitten clipboard"
+alias dup="docker compose up -d"
+alias ddown="docker compose down"
 
 {{- if eq .chezmoi.hostname "melinoe" }}
 export XMODIFIERS=@im=fcitx
