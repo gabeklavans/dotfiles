@@ -11,6 +11,18 @@ Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 {{- end }}
 
+Host beelink
+	user gabe
+	ForwardAgent yes
+
+Host dokku
+	HostName beelink
+	Port 3022
+
+Host l33tnasx
+	User leet
+	IdentityFile ~/.ssh/id_ed25519
+
 {{- if or (eq .chezmoi.hostname "melinoe") (eq .chezmoi.hostname "macaria") }}
 Host clash-build
 	HostName {{ onepasswordRead "op://Personal/Clash Build Host/URL" }}
@@ -22,13 +34,26 @@ Host clash-build
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }}
 {{- end }}
-Host mac-container
+Host clash-mac-vm
 	HostName localhost
-	Port 50822
+	Port {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
 	User clash
 	ForwardAgent yes
-Host win-container
+Host clash-win-vm
 	HostName localhost
-	Port 60022
-	User gabe
+	Port {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
+	User clash
+	ForwardAgent yes
+Host mac-vm
+	HostName localhost
+	Port 9022
+	User clash
+	ForwardAgent yes
+Host clash-qa
+	HostName {{ onepasswordRead "op://Personal/Clash QA/URL" }}
+	User {{ onepasswordRead "op://Personal/Clash QA/username" }}
+	ForwardAgent yes
+Host clash-staging
+	HostName {{ onepasswordRead "op://Personal/Clash Staging/URL" }}
+	User {{ onepasswordRead "op://Personal/Clash Staging/username" }}
 	ForwardAgent yes
