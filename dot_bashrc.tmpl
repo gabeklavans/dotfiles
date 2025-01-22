@@ -1,0 +1,116 @@
+# === bash stuff ===
+
+# anything that needs to get updated for every prompt goes in here
+prompt_cmd() {
+	# this has to go first
+	local last_exit_code=$?;
+
+	# doesn't need "[]" when used in `echo -e`
+	local NO_COLOR="\e[0m"
+
+	GIT_PS1=""
+	local git_branch=$(git branch --show-current 2>/dev/null)
+	if [ -n "$git_branch" ]; then
+		GIT_PS1=$(echo -e "(\e[33m$git_branch$NO_COLOR) ")
+	fi
+
+	CODE_PS1=""
+	if [ "$last_exit_code" != 0 ]; then
+		CODE_PS1=$(echo -e "\e[91m$last_exit_code$NO_COLOR ")
+	fi
+}
+
+set_prompt() {
+	local NO_COLOR="\[\e[0m\]"
+	local TIME_PS1="\[\e[2m\]\A$NO_COLOR"
+	local CWD_PS1="\[\e[96m\]\W$NO_COLOR"
+	local SIGN_PS1="\[\e[35m\]\$$NO_COLOR"
+
+	# set PS1 only once, not in PROMPT_COMMAND, so other things can modify it (like python venv)
+	PS1="$TIME_PS1 $CWD_PS1 \$GIT_PS1\$CODE_PS1$SIGN_PS1 "
+}
+
+PROMPT_COMMAND=prompt_cmd
+set_prompt
+
+# if there are multiple matches for completion, Tab should cycle through them
+bind 'TAB:menu-complete'
+# and Shift-Tab should cycle backwards
+bind '"\e[Z": menu-complete-backward'
+
+# display a list of the matching files
+bind "set show-all-if-ambiguous on"
+
+# perform partial (common) completion on the first Tab press, only start
+# cycling full results on the second Tab press (from bash version 5)
+bind "set menu-complete-display-prefix on"
+
+# cycle through history based on characters already typed on the line
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
+# keep Ctrl-Left and Ctrl-Right working when the above are used
+bind '"\e[1;5C":forward-word'
+bind '"\e[1;5D":backward-word'
+
+# === my stuff ===
+if [[ $TERM == "xterm-kitty" ]]; then
+	alias s="kitten ssh"
+	alias icat="kitten icat"
+	alias kclip="kitten clipboard"
+fi
+
+exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+
+if [[ -f /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if exists zoxide; then
+	eval "$(zoxide init bash)"
+fi
+
+if exists fzf; then
+	eval "$(fzf --bash)"
+fi
+
+if exists nvim; then
+	export EDITOR='nvim'
+else
+	export EDITOR='vim'
+fi
+
+if exists cargo; then
+	PATH=$PATH:~/.cargo/bin
+fi
+
+if exists go; then
+	PATH=$PATH:~/go/bin
+fi
+
+{{ if eq .chezmoi.hostname "melinoe" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "qboyq43o3sctuyauhbrjxqryc4").credential.value }}
+{{ else if eq .chezmoi.hostname "macaria" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "xvfqyhbptjjwhtldojxx3ybw3m").credential.value }}
+{{ else if eq .chezmoi.hostname "mac-mini" }}
+export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkcgu").credential.value }}
+{{ end }}
+
+if [ -n "$CODESTATS_API_KEY" ]; then
+	. ~/code-stats-bash/codestats.sh
+fi
+
+PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.local/share/bob/nvim-bin
+
+alias ls='ls --color=auto'
+
+alias dup="docker compose up -d"
+alias ddown="docker compose down"
+
+if [[ -f ~/local.bash ]]; then
+	. ~/local.bash
+fi
