@@ -110,6 +110,8 @@ alias ls='ls --color=auto'
 
 alias dup="docker compose up -d"
 alias ddown="docker compose down"
+alias venv=". ./.venv/bin/activate"
+alias unvenv="deactivate"
 
 if [[ -f ~/local.bash ]]; then
 	. ~/local.bash
