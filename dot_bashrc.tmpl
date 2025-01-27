@@ -83,8 +83,8 @@ else
 	export EDITOR='vim'
 fi
 
-if exists cargo; then
-	PATH=$PATH:~/.cargo/bin
+if [[ -f ~/.cargo/env ]]; then
+	. ~/.cargo/env
 fi
 
 if exists go; then
