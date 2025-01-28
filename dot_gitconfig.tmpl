@@ -1,13 +1,9 @@
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [user]
-	name = gabe
-{{- if eq .chezmoi.hostname "work-laptop" }}
-	email = gabriel.k@yobeinc.com
+{{- if eq .chezmoi.hostname "gbk-work-laptop" }}
+	name = Gabe Klavans
+	email = gbk@ibm.com
 {{- else }}
+	name = gabe
 	email = gabeklav@fastmail.com
 {{- end }}
 [core]
@@ -17,7 +13,7 @@
 	autoSetupRemote = true
 [merge]
 	tool = nvimdiff
-{{- if ne .chezmoi.hostname "work-laptop" }}
+{{- if ne .chezmoi.hostname "gbk-work-laptop" }}
 {{- if eq .chezmoi.os "windows" }}
 [core]
 	sshCommand = {{ .chezmoi.homeDir }}/scoop/shims/ssh.exe
@@ -26,14 +22,6 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISmB/2bA7OVnUv78ef/CrLSH8tloqrC1poQqdN/c5e4
 [gpg]
 	format = ssh
-[gpg "ssh"]
-{{- if eq .chezmoi.os "linux" }}
-	program = "/opt/1Password/op-ssh-sign"
-{{- else if eq .chezmoi.os "darwin" }}
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-{{- else if eq .chezmoi.os "windows" }}
-	program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
-{{- end }}
 [commit]
 	gpgsign = true
 {{- end }}
