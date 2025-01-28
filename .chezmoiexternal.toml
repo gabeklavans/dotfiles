@@ -1,16 +1,19 @@
-{{- if eq .chezmoi.os "windows" }}
+{{ if eq .chezmoi.os "windows" }}
 ["AppData/Local/nvim"]
-{{- else }}
+{{ else }}
 [".config/nvim"]
-{{- end }}
+{{ end }}
     type = "git-repo"
-    url = "https://git.sr.ht/~dabe/nvim"
+    url = "git@github.com:gabeklavans/nvim.git"
     refreshPeriod = "24h"
 
-{{- if ne .chezmoi.os "windows" }}
-["scripts/code-stats-zsh"]
-    type = "archive"
-    url = "https://gitlab.com/code-stats/code-stats-zsh/-/archive/master/code-stats-zsh-master.tar.gz"
-    exact = true
-    stripComponents = 1
-{{- end }}
+{{ if ne .chezmoi.os "windows" }}
+[".zsh/code-stats-zsh"]
+    type = "git-repo"
+    url = "https://gitlab.com/code-stats/code-stats-zsh.git"
+{{ if ne .chezmoi.hostname "gbk-work-laptop" }}
+[".zsh/agkozak-zsh-prompt"]
+    type = "git-repo"
+    url = "git@github.com:gabeklavans/agkozak-zsh-prompt.git"
+{{ end }}
+{{ end }}
