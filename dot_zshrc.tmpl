@@ -16,14 +16,17 @@ export AGKOZAK_COLORS_PROMPT_CHAR=magenta
 export AGKOZAK_COLORS_PATH=cyan
 export AGKOZAK_PROMPT_DIRTRIM=0
 export AGKOZAK_DIR_LEVELS=1
-export AGKOZAK_USER_HOST_DISPLAY=0
 export AGKOZAK_PROMPT_CHAR=( ❯ %# ❮ )
 export AGKOZAK_LEFT_PROMPT_ONLY=1
 export AGKOZAK_MULTILINE=0
 export AGKOZAK_SHOW_STASH=0
 export AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
+export AGKOZAK_USER_HOST_DISPLAY=0
 
 prompt agkozak-zsh-prompt
+if _agkozak_is_ssh; then
+  export AGKOZAK_USER_HOST_DISPLAY=1
+fi
 
 # env
 exists() {
