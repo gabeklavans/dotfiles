@@ -4,16 +4,24 @@
 [".config/nvim"]
 {{ end }}
     type = "git-repo"
+{{ if eq .chezmoi.hostname "gbk-work-laptop" }}
+    url = "https://github.com/gabeklavans/nvim.git"
+{{ else }}
     url = "git@github.com:gabeklavans/nvim.git"
+{{ end }}
     refreshPeriod = "24h"
 
 {{ if ne .chezmoi.os "windows" }}
+{{ if ne .chezmoi.hostname "gbk-work-laptop" }}
 [".zsh/code-stats-zsh"]
     type = "git-repo"
     url = "https://gitlab.com/code-stats/code-stats-zsh.git"
-{{ if ne .chezmoi.hostname "gbk-work-laptop" }}
+{{ end }}
 [".zsh/agkozak-zsh-prompt"]
     type = "git-repo"
+{{ if eq .chezmoi.hostname "gbk-work-laptop" }}
+    url = "https://github.com/gabeklavans/agkozak-zsh-prompt.git"
+{{ else }}
     url = "git@github.com:gabeklavans/agkozak-zsh-prompt.git"
 {{ end }}
 {{ end }}
