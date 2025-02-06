@@ -3,21 +3,9 @@ Host localhost
 	StrictHostKeyChecking no
 	UserKnownHostsFile=/dev/null
 
-{{- if and (eq .chezmoi.os "linux") (ne .chezmoi.hostname "work-laptop") }}
-Host *
-	IdentityAgent ~/.1password/agent.sock
-{{- else if eq .chezmoi.os "darwin" }}
-Host *
-	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-{{- end }}
-
 Host beelink
 	user gabe
 	ForwardAgent yes
-
-Host dokku
-	HostName beelink
-	Port 3022
 
 Host l33tnasx
 	User leet
@@ -27,10 +15,10 @@ Host l33tnasx
 Host clash-build
 	HostName {{ onepasswordRead "op://Personal/Clash Build Host/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash Build Host/username" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC qemu" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC qemu" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac web VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac web VNC" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win WebVNC" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win WebVNC" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }}
+	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win web VNC" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win web VNC" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }}
 {{- end }}
@@ -47,7 +35,7 @@ Host clash-win-vm
 Host mac-vm
 	HostName localhost
 	Port 9022
-	User clash
+	User gabe
 	ForwardAgent yes
 Host clash-qa
 	HostName {{ onepasswordRead "op://Personal/Clash QA/URL" }}
@@ -57,3 +45,6 @@ Host clash-staging
 	HostName {{ onepasswordRead "op://Personal/Clash Staging/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash Staging/username" }}
 	ForwardAgent yes
+
+Host *
+	SetEnv TERM=xterm-256color # sorry kitty
