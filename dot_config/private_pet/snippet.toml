@@ -1,0 +1,18 @@
+
+[[Snippets]]
+  Description = "rclone clash VM image to google drive"
+  Output = ""
+  Tag = ["clash"]
+  command = "sudo rclone copy ./hi.img gdrive:VM-images"
+
+[[Snippets]]
+  Description = "Start ephemeral neovim container in current directory"
+  Output = ""
+  Tag = []
+  command = "docker run -it --rm -v `pwd`:/mnt/volume --workdir=/mnt/volume anatolelucet/neovim:stable"
+
+[[Snippets]]
+  Description = "wake up mac-mini screen"
+  Output = ""
+  Tag = []
+  command = "ssh mac-mini caffeinate -u -t 1"
