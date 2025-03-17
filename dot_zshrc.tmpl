@@ -115,6 +115,9 @@ if exists snap; then
   PATH=$PATH:/snap/bin
 fi
 
+export FORGIT_LOG_FZF_OPTS='--reverse'
+[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
+
 if [[ $TERM == "xterm-kitty" ]]; then
   alias s="kitten ssh"
   alias icat="kitten icat"
