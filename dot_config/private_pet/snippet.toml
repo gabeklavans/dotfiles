@@ -16,3 +16,15 @@
   Output = ""
   Tag = []
   command = "ssh mac-mini caffeinate -u -t 1"
+
+[[Snippets]]
+  Description = "activate VS2022 powershell environment in-shell"
+  Output = ""
+  Tag = []
+  command = "& \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools\\Launch-VsDevShell.ps1\" -Arch amd64"
+
+[[Snippets]]
+  Description = "put mac-mini display to sleep"
+  Output = ""
+  Tag = []
+  command = "ssh mac-mini pmset displaysleepnow"
