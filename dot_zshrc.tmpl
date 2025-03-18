@@ -57,6 +57,7 @@ autoload -Uz compinit && compinit
 fpath+=($HOME/.zsh/agkozak-zsh-prompt)
 autoload -U promptinit; promptinit
 
+export LC_ALL=en_US.UTF-8
 export AGKOZAK_COLORS_BG_STRING=white
 export AGKOZAK_COLORS_PROMPT_CHAR=magenta
 export AGKOZAK_COLORS_PATH=cyan
@@ -66,7 +67,7 @@ export AGKOZAK_PROMPT_CHAR=( ❯ %# ❮ )
 export AGKOZAK_LEFT_PROMPT_ONLY=1
 export AGKOZAK_MULTILINE=0
 export AGKOZAK_SHOW_STASH=0
-#export AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
+export AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
 export AGKOZAK_USER_HOST_DISPLAY=0
 
 prompt agkozak-zsh-prompt
