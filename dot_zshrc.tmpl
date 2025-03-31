@@ -84,12 +84,20 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 if exists zoxide; then
   eval "$(zoxide init zsh)"
 fi
 
 if exists fzf; then
   eval "$(fzf --zsh)"
+fi
+
+if exists fnm; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 if exists nvim; then
