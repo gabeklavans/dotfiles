@@ -28,3 +28,15 @@
   Output = ""
   Tag = []
   command = "ssh mac-mini pmset displaysleepnow"
+
+[[Snippets]]
+  Description = "install homebrew"
+  Output = ""
+  Tag = []
+  command = "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+
+[[Snippets]]
+  Description = "restart plasma shell (doesn't kill any apps)"
+  Output = ""
+  Tag = []
+  command = "kquitapp6 plasmashell; kstart plasmashell"
