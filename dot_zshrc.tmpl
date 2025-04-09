@@ -69,6 +69,9 @@ export AGKOZAK_MULTILINE=0
 export AGKOZAK_SHOW_STASH=0
 export AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
 export AGKOZAK_USER_HOST_DISPLAY=0
+if [[ -v CONTAINER_ID ]]; then
+  AGKOZAK_PRE_PROMPT_CHAR=' 📦'
+fi
 
 prompt agkozak-zsh-prompt
 if _agkozak_is_ssh; then
