@@ -25,7 +25,6 @@ Host clash-build
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win web VNC" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win web VNC" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
 	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }}
-{{- end }}
 Host clash-mac-vm
 	HostName localhost
 	Port {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
@@ -49,6 +48,7 @@ Host clash-staging
 	HostName {{ onepasswordRead "op://Personal/Clash Staging/URL" }}
 	User {{ onepasswordRead "op://Personal/Clash Staging/username" }}
 	ForwardAgent yes
+{{- end }}
 
 Host *
 	SetEnv TERM=xterm-256color # sorry kitty
