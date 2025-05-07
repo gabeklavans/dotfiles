@@ -3,10 +3,6 @@ Host localhost
 	StrictHostKeyChecking no
 	UserKnownHostsFile=/dev/null
 
-Host beelink
-	user gabe
-	ForwardAgent yes
-
 Host hades
 	user root
 	ForwardAgent yes
@@ -14,6 +10,10 @@ Host hades
 Host l33tnasx
 	User leet
 	IdentityFile ~/.ssh/id_ed25519
+
+Host kronos
+	user gabe
+	ForwardAgent yes
 
 {{- if or (eq .chezmoi.hostname "melinoe") (eq .chezmoi.hostname "macaria") }}
 Host clash-build
