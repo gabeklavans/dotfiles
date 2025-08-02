@@ -4,7 +4,7 @@ Host localhost
 	UserKnownHostsFile=/dev/null
 
 Host hades
-	user root
+	user gabe
 	ForwardAgent yes
 
 Host l33tnasx
@@ -12,7 +12,7 @@ Host l33tnasx
 	IdentityFile ~/.ssh/id_ed25519
 
 Host kronos
-	user gabe
+	User gabe
 	ForwardAgent yes
 
 {{- if or (eq .chezmoi.hostname "melinoe") (eq .chezmoi.hostname "macaria") }}
@@ -42,11 +42,29 @@ Host mac-vm
 	ForwardAgent yes
 Host clash-qa
 	HostName {{ onepasswordRead "op://Personal/Clash QA/URL" }}
-	User {{ onepasswordRead "op://Personal/Clash QA/username" }}
-	ForwardAgent yes
 Host clash-staging
 	HostName {{ onepasswordRead "op://Personal/Clash Staging/URL" }}
-	User {{ onepasswordRead "op://Personal/Clash Staging/username" }}
+Host clash-prod
+	HostName {{ onepasswordRead "op://Private/Clash Prod/URL" }}
+Host clash-atlassian
+	HostName {{ onepasswordRead "op://Private/Clash Atlassian/URL" }}
+Host clash-website
+	HostName {{ onepasswordRead "op://Private/Clash Website VM/URL" }}
+	User {{ onepasswordRead "op://Private/Clash Website VM/username" }}
+Host clash-bots
+	HostName {{ onepasswordRead "op://Private/Clash Bots/URL" }}
+Host clash-support
+	HostName {{ onepasswordRead "op://Private/Clash Support VM/URL" }}
+Host clash-bw
+	HostName {{ onepasswordRead "op://Private/Clash Bitwarden VM/URL" }}
+Host clash-cogsink
+	HostName {{ onepasswordRead "op://Private/Clash Cogs.ink VM/URL" }}
+	User {{ onepasswordRead "op://Private/Clash Cogs.ink VM/username" }}
+Host clash-forgejo
+	HostName {{ onepasswordRead "op://Private/Clash Forgejo/URL" }}
+
+Host *.corpclash.com
+	User {{ onepasswordRead "op://Private/Clash Prod/username" }}
 	ForwardAgent yes
 {{- end }}
 

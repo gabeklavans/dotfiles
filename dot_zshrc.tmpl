@@ -127,6 +127,10 @@ if exists snap; then
   PATH=$PATH:/snap/bin
 fi
 
+if exists direnv; then
+  eval "$(direnv hook zsh)"
+fi
+
 export FORGIT_LOG_FZF_OPTS='--reverse'
 [ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
 

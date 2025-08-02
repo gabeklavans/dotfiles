@@ -40,3 +40,9 @@
   Output = ""
   Tag = []
   command = "kquitapp6 plasmashell; kstart plasmashell"
+
+[[Snippets]]
+  Description = "put kde wayland display to sleep"
+  Output = ""
+  Tag = []
+  command = "kscreen-doctor --dpms off"
