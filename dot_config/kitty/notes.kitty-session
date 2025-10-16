@@ -1,0 +1,6 @@
+new_tab
+layout fat
+enabled_layouts fat,grid,horizontal,splits,stack,tall,vertical
+cd ~/Documents/notes
+
+launch nvim .
