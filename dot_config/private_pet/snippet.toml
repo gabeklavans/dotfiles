@@ -46,3 +46,15 @@
   Output = ""
   Tag = []
   command = "kscreen-doctor --dpms off"
+
+[[Snippets]]
+  Description = "check public ip"
+  Output = ""
+  Tag = []
+  command = "curl https://ipinfo.io/ip"
+
+[[Snippets]]
+  Description = "get external IP address"
+  Output = ""
+  Tag = []
+  command = "curl https://ipinfo.io/ip"
