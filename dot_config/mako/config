@@ -1,0 +1,6 @@
+background-color=#CBA6F7EE
+font=FiraMono Nerd Font 10
+default-timeout=6000
+progress-color=over #F0932B
+max-visible=3
+group-by=app-name
