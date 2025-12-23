@@ -1,8 +1,8 @@
 [[ssh-keys]]
-item = "Git Auth"
+item = "Git"
 
 [[ssh-keys]]
-item = "GitLab Auth & Sign"
+item = "GitHub Signing"
 
 [[ssh-keys]]
 item = "personal"
