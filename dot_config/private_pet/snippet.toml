@@ -58,3 +58,15 @@
   Output = ""
   Tag = []
   command = "curl https://ipinfo.io/ip"
+
+[[Snippets]]
+  Description = "tell direnv where the .venv is"
+  Output = ""
+  Tag = []
+  command = "export VIRTUAL_ENV=.venv"
+
+[[Snippets]]
+  Description = "replace Optional[x] with x | None in python"
+  Output = ""
+  Tag = []
+  command = "Optional\\[\\(.*\\)\\]/\\1 | None"
