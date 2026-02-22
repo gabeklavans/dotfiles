@@ -2,7 +2,7 @@
 item = "Git"
 
 [[ssh-keys]]
-item = "GitHub Signing"
+item = "GitLab Auth & Sign"
 
 [[ssh-keys]]
 item = "personal"
