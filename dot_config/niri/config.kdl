@@ -258,6 +258,7 @@ layout {
 spawn-at-startup "1password"
 // handle xwayland apps
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swaybg --image /home/gabe/Pictures/stardewcrew.jpg --mode fill"
 environment {
     DISPLAY ":0"
 }
