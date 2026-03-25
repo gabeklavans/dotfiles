@@ -70,3 +70,21 @@
   Output = ""
   Tag = []
   command = "Optional\\[\\(.*\\)\\]/\\1 | None"
+
+[[Snippets]]
+  Description = "open koito database prompt"
+  Output = ""
+  Tag = []
+  command = "podman exec -it koito-db psql -d koitodb -U postgres"
+
+[[Snippets]]
+  Description = "Get email from clash suppression list"
+  Output = ""
+  Tag = []
+  command = "aws sesv2 get-suppressed-destination --email-address <email> --profile clash"
+
+[[Snippets]]
+  Description = "Remove email from clash suppression list"
+  Output = ""
+  Tag = []
+  command = "aws sesv2 delete-suppressed-destination --email-address <email> --profile clash"
