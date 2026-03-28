@@ -88,3 +88,15 @@
   Output = ""
   Tag = []
   command = "aws sesv2 delete-suppressed-destination --email-address <email> --profile clash"
+
+[[Snippets]]
+  Description = "show wifi access point SSIDs"
+  Output = ""
+  Tag = []
+  command = "nmcli device wifi list"
+
+[[Snippets]]
+  Description = "connect to wifi SSID"
+  Output = ""
+  Tag = []
+  command = "nmcli device wifi connect '<SSID>'"
