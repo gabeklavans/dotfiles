@@ -1,0 +1,10 @@
+title clash code
+cd ~/code/clash/CorporateClash-dev
+launch --title "clash code" distrobox enter arch -- kitten run-shell --shell zsh
+
+new_tab clash run
+layout vertical
+cd ~/code/clash/CorporateClash-dev
+launch distrobox enter arch -- kitten run-shell --shell zsh
+launch distrobox enter arch -- kitten run-shell --shell zsh
+launch distrobox enter arch -- kitten run-shell --shell zsh
