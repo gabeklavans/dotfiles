@@ -2,10 +2,7 @@
 item = "Git"
 
 [[ssh-keys]]
-item = "GitLab Auth & Sign"
-
-[[ssh-keys]]
 item = "personal"
 
 [[ssh-keys]]
-vault = "Personal"
+item = "qy5hdlbbumwb4rbvlihpmwthia"
