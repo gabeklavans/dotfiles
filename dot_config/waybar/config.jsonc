@@ -10,9 +10,6 @@
         "idle_inhibitor",
         "mpris"
     ],
-    "modules-center": [
-        "cava"
-    ],
     "modules-right": [
         "mpd",
         "pulseaudio",
@@ -22,32 +19,32 @@
         "cpu",
         "memory",
         "temperature",
-        "backlight",
-        "keyboard-state",
+        // "backlight",
+        // "keyboard-state",
         "sway/language",
         "battery",
         "battery#bat2",
         "clock",
-        "tray",
-        "custom/power"
+        "tray"
+        // "custom/power"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -110,8 +107,10 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        // https://en.cppreference.com/cpp/chrono/duration/formatter
+        "format": "{:%R %a %m/%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%T}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -183,8 +182,8 @@
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
     "mpris": {
-        "format": "{player_icon} {title:.65} [{position}/{length}]",
-        "format-paused": "{status_icon} <i>{title:.65} [{position}/{length}]</i>",
+        "format": "{player_icon} {title:.28}",
+        "format-paused": "{status_icon} <i>{title:.17} {position}/{length}</i>",
         "player-icons": {
             "default": "▶",
             "mpv": "🎵",
