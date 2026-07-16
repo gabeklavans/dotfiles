@@ -3,7 +3,8 @@
 
 set -euo pipefail
 
-FOC="alsa_output.usb-Focusrite_Scarlett_Solo_USB_Y76MWU09B82C80-00.HiFi__Line1__sink"
+# FOC="alsa_output.usb-Focusrite_Scarlett_Solo_USB_Y76MWU09B82C80-00.HiFi__Line1__sink"
+FOC="alsa_output.usb-Focusrite_Scarlett_Solo_USB_Y76MWU09B82C80-00.HiFi__Line__sink"
 STE="alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game"
 
 current=$(pactl get-default-sink)
