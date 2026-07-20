@@ -1,10 +1,33 @@
 title clash code
-cd ~/code/clash/CorporateClash-dev
+cd ~/Projects/clash/CorporateClash-dev
 launch --title "clash code" distrobox enter arch -- kitten run-shell --shell zsh
 
 new_tab clash run
 layout vertical
-cd ~/code/clash/CorporateClash-dev
+cd ~/Projects/clash/CorporateClash-dev/dev/docker
+launch
+cd ~/Projects/clash/CorporateClash-dev
 launch distrobox enter arch -- kitten run-shell --shell zsh
 launch distrobox enter arch -- kitten run-shell --shell zsh
 launch distrobox enter arch -- kitten run-shell --shell zsh
+
+new_tab resources
+cd ~/Projects/clash/resources
+launch --title "resources" distrobox enter arch -- kitten run-shell --shell zsh
+
+new_tab ham code
+cd ~/Projects/clash/corporateclash
+launch --title "ham code" distrobox enter arch -- kitten run-shell --shell zsh
+
+new_tab ham run
+layout vertical
+cd ~/Projects/clash/corporateclash/dev/docker
+launch
+cd ~/Projects/clash/corporateclash
+launch distrobox enter arch -- kitten run-shell --shell zsh
+launch distrobox enter arch -- kitten run-shell --shell zsh
+launch distrobox enter arch -- kitten run-shell --shell zsh
+
+new_tab clashdb
+cd ~/Projects/clash/clashdb
+launch --title "clashdb" distrobox enter arch -- kitten run-shell --shell zsh
