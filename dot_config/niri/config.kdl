@@ -356,7 +356,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Alt+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Ctrl+Shift+Space hotkey-overlay-title="Select a login: rofi-rbw" { spawn-sh "rofi-rbw"; }
-    Ctrl+Shift+C hotkey-overlay-title="Select a clash login: rofi-rbw" { spawn-sh "RBW_PROFILE=clash rofi-rbw"; }
+    Ctrl+Shift+Alt+Space hotkey-overlay-title="Select a clash login: rofi-rbw" { spawn-sh "RBW_PROFILE=clash rofi-rbw"; }
     Mod+B hotkey-overlay-title="Run an Application: firefox" { spawn "flatpak" "run" "org.mozilla.firefox"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
