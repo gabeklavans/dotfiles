@@ -1,0 +1,8 @@
+configuration {
+}
+
+@theme "catppuccin-default"
+
+window {
+    width: 75%;
+}
