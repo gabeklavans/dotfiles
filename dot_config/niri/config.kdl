@@ -105,7 +105,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 8
+    gaps 4
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -132,9 +132,9 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    // default-column-width { proportion 1.0; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
+    default-column-width {}
 
     // By default focus ring and border are rendered as a solid background rectangle
     // behind windows. That is, they will show up through semitransparent windows.
@@ -153,7 +153,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 2
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -188,7 +188,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 4
+        width 2
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -355,8 +355,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Alt+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Ctrl+Shift+Space hotkey-overlay-title="Select a login: rofi-rbw" { spawn-sh "rofi-rbw"; }
-    Ctrl+Shift+Alt+Space hotkey-overlay-title="Select a clash login: rofi-rbw" { spawn-sh "RBW_PROFILE=clash rofi-rbw"; }
+    Ctrl+Shift+Space hotkey-overlay-title="Select a login: rofi-rbw" { spawn-sh "/home/gabe/scripts/bw-picker.sh"; }
+    Ctrl+Shift+Alt+Space hotkey-overlay-title="Select a clash login: rofi-rbw" { spawn-sh "RBW_PROFILE=clash /home/gabe/scripts/bw-picker.sh"; }
     Mod+B hotkey-overlay-title="Run an Application: firefox" { spawn "flatpak" "run" "org.mozilla.firefox"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
