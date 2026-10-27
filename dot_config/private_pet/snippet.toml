@@ -100,3 +100,9 @@
   Output = ""
   Tag = []
   command = "nmcli device wifi connect '<SSID>'"
+
+[[Snippets]]
+  Description = "Enable Neovim Discord RPC for current dir"
+  Output = ""
+  Tag = []
+  command = "echo 'require(\"cord\").setup(vim.g.cord_opts)' >> .nvim.lua"

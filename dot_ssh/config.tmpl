@@ -17,54 +17,28 @@ Host kronos
 
 {{- if or (eq .chezmoi.hostname "melinoe") (eq .chezmoi.hostname "macaria") }}
 Host clash-build
-	HostName {{ onepasswordRead "op://Personal/Clash Build Host/URL" }}
-	User {{ onepasswordRead "op://Personal/Clash Build Host/username" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac web VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac web VNC" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }} 127.0.0.1:{{- onepasswordRead "op://Personal/Clash Build Host/Ports/mac VNC" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win web VNC" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win web VNC" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
-	LocalForward {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }} 127.0.0.1:{{ onepasswordRead "op://Personal/Clash Build Host/Ports/win RDP" }}
-Host clash-mac-vm
-	HostName localhost
-	Port {{ onepasswordRead "op://Personal/Clash Build Host/Ports/mac SSH" }}
-	User clash
-	ForwardAgent yes
-Host clash-win-vm
-	HostName localhost
-	Port {{ onepasswordRead "op://Personal/Clash Build Host/Ports/win SSH" }}
-	User clash
-	ForwardAgent yes
-Host mac-vm
-	HostName localhost
-	Port 9022
-	User gabe
-	ForwardAgent yes
+	HostName {{ (rbwFields "Clash Build Host").URL.value }}
+	User {{ (rbwFields "Clash Build Host").username.value }}
 Host clash-qa
-	HostName {{ onepasswordRead "op://Personal/Clash QA/URL" }}
+	HostName {{ (rbwFields "Clash QA").URL.value }}
 Host clash-staging
-	HostName {{ onepasswordRead "op://Personal/Clash Staging/URL" }}
+	HostName {{ (rbwFields "Clash Staging").URL.value }}
 Host clash-prod
-	HostName {{ onepasswordRead "op://Private/Clash Prod/URL" }}
+	HostName {{ (rbwFields "Clash Prod").URL.value }}
 Host clash-atlassian
-	HostName {{ onepasswordRead "op://Private/Clash Atlassian/URL" }}
+	HostName {{ (rbwFields "Clash Atlassian").URL.value }}
 Host clash-website
-	HostName {{ onepasswordRead "op://Private/Clash Website VM/URL" }}
-	User {{ onepasswordRead "op://Private/Clash Website VM/username" }}
+	HostName {{ (rbwFields "Clash Website VM").URL.value }}
+	User {{ (rbwFields "Clash Website VM").username.value }}
 Host clash-bots
-	HostName {{ onepasswordRead "op://Private/Clash Bots/URL" }}
+	HostName {{ (rbwFields "Clash Bots").URL.value }}
 Host clash-support
-	HostName {{ onepasswordRead "op://Private/Clash Support VM/URL" }}
-Host clash-bw
-	HostName {{ onepasswordRead "op://Private/Clash Bitwarden VM/URL" }}
+	HostName {{ (rbwFields "Clash Support VM").URL.value }}
 Host clash-cogsink
-	HostName {{ onepasswordRead "op://Private/Clash Cogs.ink VM/URL" }}
-	User {{ onepasswordRead "op://Private/Clash Cogs.ink VM/username" }}
-Host clash-forgejo
-	HostName {{ onepasswordRead "op://Private/Clash Forgejo/URL" }}
+	HostName {{ (rbwFields "Clash Cogs.ink VM").URL.value }}
+	User {{ (rbwFields "Clash Cogs.ink VM").username.value }}
 
 Host *.corpclash.com
-	User {{ onepasswordRead "op://Private/Clash Prod/username" }}
 	ForwardAgent yes
 {{- end }}
 
