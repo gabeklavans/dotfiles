@@ -54,29 +54,14 @@ fi
 autoload -Uz compinit && compinit
 
 # theme
-fpath+=($HOME/.zsh/agkozak-zsh-prompt)
-autoload -U promptinit; promptinit
-
-export LC_ALL=en_US.UTF-8
-export AGKOZAK_COLORS_BG_STRING=white
-export AGKOZAK_COLORS_PROMPT_CHAR=magenta
-export AGKOZAK_COLORS_PATH=cyan
-export AGKOZAK_PROMPT_DIRTRIM=0
-export AGKOZAK_DIR_LEVELS=1
-export AGKOZAK_PROMPT_CHAR=( ❯ %# ❮ )
-export AGKOZAK_LEFT_PROMPT_ONLY=1
-export AGKOZAK_MULTILINE=0
-export AGKOZAK_SHOW_STASH=0
-export AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
-export AGKOZAK_USER_HOST_DISPLAY=0
-if [[ -v CONTAINER_ID ]]; then
-  AGKOZAK_PRE_PROMPT_CHAR=' 📦'
-fi
-
-prompt agkozak-zsh-prompt
-if _agkozak_is_ssh; then
-  export AGKOZAK_USER_HOST_DISPLAY=1
-fi
+setopt PROMPT_SUBST
+function container_info {
+  [ $CONTAINER_ID ] && echo '📦 '
+}
+function virtualenv_info {
+  [ $VIRTUAL_ENV_PROMPT ] && echo '🐍 '
+}
+PROMPT='$(container_info)%1~ $(virtualenv_info)❯ '
 
 # env
 exists() {
@@ -131,27 +116,31 @@ if exists direnv; then
   eval "$(direnv hook zsh)"
 fi
 
-export FORGIT_LOG_FZF_OPTS='--reverse'
-[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+# aliases
 if [[ $TERM == "xterm-kitty" ]]; then
   alias s="kitten ssh"
   alias icat="kitten icat"
   alias kclip="kitten clipboard"
 fi
-alias ls='ls --color=auto'
 alias dup="docker compose up -d"
 alias ddown="docker compose down"
+alias dart="docker compose restart"
+alias pup="podman compose up -d"
+alias pupa="podman compose up"
+alias pown="podman compose down"
+alias part="podman compose restart"
 alias venv=". ./.venv/bin/activate"
 alias unvenv="deactivate"
 
 # external stuff
 {{- if eq .chezmoi.hostname "melinoe" }}
-export CODESTATS_API_KEY={{- (onepasswordDetailsFields "qboyq43o3sctuyauhbrjxqryc4").credential.value }}
+export CODESTATS_API_KEY={{- (rbw "melinoe codestats api key").data.password }}
 {{- else if eq .chezmoi.hostname "macaria" }}
-export CODESTATS_API_KEY={{- (onepasswordDetailsFields "xvfqyhbptjjwhtldojxx3ybw3m").credential.value }}
+export CODESTATS_API_KEY={{- (rbw "macaria codestats api key").data.password }}
 {{- else if eq .chezmoi.hostname "mac-mini" }}
-export CODESTATS_API_KEY={{- (onepasswordDetailsFields "pu6atreg7aimse7k3on3ilkcgu").credential.value }}
+export CODESTATS_API_KEY={{- (rbw "mac-mini codestats api key").data.password }}
 {{- end }}
 if [[ -n "${CODESTATS_API_KEY:+1}" ]]; then
   . ~/.zsh/code-stats-zsh/codestats.plugin.zsh
